@@ -136,6 +136,12 @@
                             <div>Planes y Pagos</div>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="{{ route('ajustes.index') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cog"></i>
+                            <div>Ajustes</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu Lateral -->
