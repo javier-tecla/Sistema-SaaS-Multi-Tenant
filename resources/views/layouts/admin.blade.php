@@ -125,7 +125,8 @@
                     </li>
 
                     <li class="menu-item">
-                        <a href="{{ route('admin.tenants.index') }}" class="menu-link">
+                        <li class="menu-item {{ request()->is('admin/tenants*') ? 'active' : '' }}">
+                        <a href="{{ url('/admin/tenants') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-store"></i>
                             <div>Tiendas (Tenants)</div>
                         </a>
@@ -136,10 +137,16 @@
                             <div>Planes y Pagos</div>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="{{ route('ajustes.index') }}" class="menu-link">
+                    <li class="menu-item {{ request()->is('ajustes*') ? 'active' : '' }}">
+                        <a href="{{ url('/ajustes') }}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-cog"></i>
                             <div>Ajustes</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ request()->is('categorias*') ? 'active' : '' }}">
+                        <a href="{{ url('/categorias') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-category"></i>
+                            <div>Categorías</div>
                         </a>
                     </li>
                 </ul>

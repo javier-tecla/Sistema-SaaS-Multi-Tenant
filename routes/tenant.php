@@ -35,4 +35,7 @@ Route::middleware([
 
     Route::get('/ajustes', [\App\Http\Controllers\Tenant\AjusteController::class, 'index'])->name('ajustes.index');
     Route::post('/ajustes', [\App\Http\Controllers\Tenant\AjusteController::class, 'store'])->name('ajustes.store');
+
+    // Categorias
+    Route::resource('categorias', \App\Http\Controllers\Tenant\CategoriaController::class);
 });
