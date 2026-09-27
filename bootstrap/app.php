@@ -12,7 +12,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Redirigir a los invitados de forma relativa (/login) para respetar el subdominio del tenant actual
+        $middleware->redirectTo(
+            guests: '/login',
+            users: '/dashboard',
+        );
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
