@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+
+use App\Http\Controllers\Tenant\ProductoController;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
@@ -33,9 +35,13 @@ Route::middleware([
 
     require __DIR__ . '/auth.php';
 
-    Route::get('/ajustes', [\App\Http\Controllers\Tenant\AjusteController::class, 'index'])->name('ajustes.index');
-    Route::post('/ajustes', [\App\Http\Controllers\Tenant\AjusteController::class, 'store'])->name('ajustes.store');
+    Route::get('/ajustes', [\App\Http\Controllers\Tenant\AjusteController::class, 'index'])->name('ajustes.index')->middleware('auth');
+    Route::post('/ajustes', [\App\Http\Controllers\Tenant\AjusteController::class, 'store'])->name('ajustes.store')->middleware('auth');
 
     // Categorias
-    Route::resource('categorias', \App\Http\Controllers\Tenant\CategoriaController::class);
+    Route::resource('categorias', \App\Http\Controllers\Tenant\CategoriaController::class)->middleware('auth');
+
+    // Productos
+    Route::resource('productos', \App\Http\Controllers\Tenant\ProductoController::class)->middleware('auth');
+    Route::delete('/productos/imagen/{imagen}', [ProductoController::class, 'eliminarImagen'])->name('productos.imagen.destroy')->middleware('auth');
 });

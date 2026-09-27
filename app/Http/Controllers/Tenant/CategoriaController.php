@@ -37,7 +37,7 @@ class CategoriaController extends Controller
             'nombre' => ['required', 'string', 'max:255', 'unique:categorias,nombre'],
             'descripcion' => ['nullable', 'string', 'max:500'],
             'estado' => ['required', 'boolean'],
-        ],[
+        ], [
             'nombre.unique' => 'Ya existe una categoría registrada con este nombre en tu tienda.',
         ]);
 
@@ -49,7 +49,7 @@ class CategoriaController extends Controller
             ->with('swal', [
                 'icon' => 'success',
                 'title' => '¡Categoría Creada!',
-                'text' => "La cetagoría '{$request->nombre}' fue registrada exitosamente.",
+                'text' => "La categoría '{$request->nombre}' fue registrada exitosamente.",
             ]);
     }
 
@@ -83,7 +83,7 @@ class CategoriaController extends Controller
             ],
             'descripcion' => ['nullable', 'string', 'max:500'],
             'estado' => ['required', 'boolean'],
-        ],[
+        ], [
             'nombre.unique' => 'Ya existe otra categoría con este nombre en tu tienda.',
         ]);
 

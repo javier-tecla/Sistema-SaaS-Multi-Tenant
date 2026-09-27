@@ -149,6 +149,12 @@
                             <div>Categorías</div>
                         </a>
                     </li>
+                    <li class="menu-item {{ request()->is('productos*') ? 'active' : '' }}">
+                        <a href="{{ url('/productos') }}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-package"></i>
+                            <div>Productos</div>
+                        </a>
+                    </li>
                 </ul>
             </aside>
             <!-- / Menu Lateral -->
