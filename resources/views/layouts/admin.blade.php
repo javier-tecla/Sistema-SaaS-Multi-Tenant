@@ -163,6 +163,21 @@
                                 <div>Productos</div>
                             </a>
                         </li>
+
+                        <!-- Pedidos y Ventas-->
+                        <li class="menu-item {{ request()->routeIs('pedidos.*') ? 'active' : '' }}">
+                            <a href="{{ route('pedidos.index') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-shopping-bag"></i>
+                                <div data-il8n="Pedidos">Pedidos y Ventas</div>
+                            </a>
+                        </li>
+                        <!-- Clientes -->
+                         <li class="menu-item {{ request()->routeIs('clientes.*') ? 'active' : '' }}">
+                            <a href="{{ route('clientes.index') }}" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-user"></i>
+                                <div data-il8n="Clientes">Clientes</div>
+                            </a>
+                        </li>
                     @endif
                 </ul>
             </aside>
